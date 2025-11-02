@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Government School Management System</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <h1 class="logo">🏫 School Management</h1>
+            
+            <ul class="nav-menu">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#login">Login</a></li>
+                <li><a href="#about">About</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main>
+        <section id="home" class="hero">
+            <div class="hero-content">
+                <h2>Welcome to Government School Management System</h2>
+                <p>Efficient management of schools, students, teachers and analytics</p>
+                <button class="cta-button">Get Started</button>
+            </div>
+        </section>
+
+        <!-- Login Section -->
+        <section id="login" class="login-section">
+            <div class="login-container">
+                <div class="login-glass">
+                    <h2>Login to Your Account</h2>
+                    <form class="login-form" method="POST" action="login.php">
+                        <div class="form-group">
+                            <label for="username">Username:</label>
+                            <input type="text" id="username" name="username" required>
+                        </div>
+                    
+                        <div class="form-group">
+                            <label for="password">Password:</label>
+                            <input type="password" id="password" name="password" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="role">Login As:</label>
+                            <select id="role" name="role">
+                                <option value="admin">Admin</option>
+                                <option value="teacher">Teacher</option>
+                                <option value="student">Student</option>
+                                <option value="parent">Parent</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="login-btn">Login</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

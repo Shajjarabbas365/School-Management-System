@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teacher Dashboard - School Management</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/teacher.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <h1 class="logo">👨‍🏫 Teacher Dashboard</h1>
+            <ul class="nav-menu">
+                <li><a href="#dashboard">Dashboard</a></li>
+                <li><a href="#attendance">Attendance</a></li>
+                <li><a href="#results">Results</a></li>
+                <li><a href="#timetable">Timetable</a></li>
+                <li><a href="index.html">Logout</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Teacher Content -->
+    <main class="teacher-main">
+        <!-- Teacher Profile -->
+        <section class="teacher-profile">
+            <div class="profile-card">
+                <div class="profile-info">
+                    <h2>Welcome, Dr. Sharma</h2>
+                    <p>Mathematics Teacher | Class 10-A</p>
+                    <div class="profile-details">
+                        <span><strong>Subject:</strong> Mathematics</span>
+                        <span><strong>Class:</strong> 10-A, 10-B</span>
+                        <span><strong>Experience:</strong> 8 Years</span>
+                    </div>
+                </div>
+                <div class="profile-stats">
+                    <div class="profile-stat">
+                        <h3>Total Students</h3>
+                        <p>72</p>
+                    </div>
+                    <div class="profile-stat">
+                        <h3>Classes</h3>
+                        <p>2</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quick Stats -->
+        <section id="dashboard" class="dashboard-section">
+            <h2>Today's Overview</h2>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <h3>Today's Classes</h3>
+                    <p class="stat-number">3</p>
+                    <span class="stat-label">Sessions</span>
+                </div>
+                <div class="stat-card">
+                    <h3>Pending Attendance</h3>
+                    <p class="stat-number">1</p>
+                    <span class="stat-label">Class</span>
+                </div>
+                <div class="stat-card">
+                    <h3>Assignments Due</h3>
+                    <p class="stat-number">2</p>
+                    <span class="stat-label">To Check</span>
+                </div>
+                <div class="stat-card">
+                    <h3>Students Present</h3>
+                    <p class="stat-number">68/72</p>
+                    <span class="stat-label">Today</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Attendance Management -->
+        <section id="attendance" class="management-section">
+            <div class="section-header">
+                <h2>Mark Attendance</h2>
+                <div class="class-selector">
+                    <label for="classSelect">Select Class:</label>
+                    <select id="classSelect">
+                        <option value="10A">Class 10-A</option>
+                        <option value="10B">Class 10-B</option>
+                    </select>
+                </div>
+            </div>
+            
+            <div class="attendance-table-container">
+                <table class="attendance-table">
+                    <thead>
+                        <tr>
+                            <th>Roll No</th>
+                            <th>Student Name</th>
+                            <th>Attendance</th>
+                            <th>Remarks</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>101</td>
+                            <td>Aarav Kumar</td>
+                            <td>
+                                <select class="attendance-status">
+                                    <option value="present">Present</option>
+                                    <option value="absent">Absent</option>
+                                    <option value="late">Late</option>
+                                </select>
+                            </td>
+                            <td>
+                                <input type="text" class="remarks-input" placeholder="Optional remarks">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>102</td>
+                            <td>Priya Singh</td>
+                            <td>
+                                <select class="attendance-status">
+                                    <option value="present">Present</option>
+                                    <option value="absent">Absent</option>
+                                    <option value="late">Late</option>
+                                </select>
+                            </td>
+                            <td>
+                                <input type="text" class="remarks-input" placeholder="Optional remarks">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>103</td>
+                            <td>Rohan Mehta</td>
+                            <td>
+                                <select class="attendance-status">
+                                    <option value="present">Present</option>
+                                    <option value="absent">Absent</option>
+                                    <option value="late">Late</option>
+                                </select>
+                            </td>
+                            <td>
+                                <input type="text" class="remarks-input" placeholder="Optional remarks">
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="attendance-actions">
+                    <button class="save-btn" onclick="saveAttendance()">Save Attendance</button>
+                    <button class="reset-btn" onclick="resetAttendance()">Reset</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Results Management -->
+        <section id="results" class="management-section">
+            <div class="section-header">
+                <h2>Manage Results</h2>
+                <button class="add-btn" onclick="openUploadResultsModal()">📊 Upload Results</button>
+            </div>
+            
+            <div class="results-summary">
+                <div class="result-card">
+                    <h3>Last Exam Performance</h3>
+                    <p class="performance-score">84%</p>
+                    <span class="performance-label">Class Average</span>
+                </div>
+                <div class="result-card">
+                    <h3>Toppers</h3>
+                    <p class="topper-name">Aarav Kumar</p>
+                    <span class="topper-score">98%</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Today's Timetable -->
+        <section id="timetable" class="management-section">
+            <h2>Today's Timetable</h2>
+            <div class="timetable-container">
+                <div class="timetable-slot">
+                    <span class="time">09:00 - 10:00</span>
+                    <span class="subject">Mathematics - 10A</span>
+                    <span class="classroom">Room 201</span>
+                </div>
+                <div class="timetable-slot">
+                    <span class="time">10:00 - 11:00</span>
+                    <span class="subject">Mathematics - 10B</span>
+                    <span class="classroom">Room 202</span>
+                </div>
+                <div class="timetable-slot">
+                    <span class="time">11:30 - 12:30</span>
+                    <span class="subject">Remedial Class</span>
+                    <span class="classroom">Library</span>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Upload Results Modal -->
+    <div id="uploadResultsModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeUploadResultsModal()">&times;</span>
+            <h2>Upload Exam Results</h2>
+            <form class="modal-form">
+                <div class="form-group">
+                    <label for="examType">Exam Type:</label>
+                    <select id="examType" required>
+                        <option value="">Select Exam</option>
+                        <option value="unit_test">Unit Test</option>
+                        <option value="mid_term">Mid Term</option>
+                        <option value="final">Final Exam</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="resultClass">Class:</label>
+                    <select id="resultClass" required>
+                        <option value="10A">Class 10-A</option>
+                        <option value="10B">Class 10-B</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="resultFile">Upload Marks Sheet:</label>
+                    <input type="file" id="resultFile" accept=".xlsx,.csv" required>
+                </div>
+                <div class="form-actions">
+                    <button type="button" class="cancel-btn" onclick="closeUploadResultsModal()">Cancel</button>
+                    <button type="submit" class="submit-btn">Upload Results</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="js/teacher.js"></script>
+</body>
+</html>

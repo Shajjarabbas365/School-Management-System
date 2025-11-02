@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - School Management</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/admin.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <h1 class="logo">🏫 Admin Dashboard</h1>
+            <ul class="nav-menu">
+                <li><a href="#dashboard">Dashboard</a></li>
+                <li><a href="#schools">Schools</a></li>
+                <li><a href="#users">Users</a></li>
+                <li><a href="#reports">Reports</a></li>
+                <li><a href="#database">Database</a></li>
+                <li><a href="index.html">Logout</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="admin-main">
+        <section id="dashboard" class="dashboard-section">
+            <h2>System Overview</h2>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <h3>Total Schools</h3>
+                    <p class="stat-number">0</p>
+                    <span class="stat-label">Registered</span>
+                </div>
+                <div class="stat-card">
+                    <h3>Total Students</h3>
+                    <p class="stat-number">0</p>
+                    <span class="stat-label">Enrolled</span>
+                </div>
+                <div class="stat-card">
+                    <h3>Total Teachers</h3>
+                    <p class="stat-number">0</p>
+                    <span class="stat-label">Active</span>
+                </div>
+                <div class="stat-card">
+                    <h3>Fee Collection</h3>
+                    <p class="stat-number">₹0</p>
+                    <span class="stat-label">This Month</span>
+                </div>
+            </div>
+        </section>
+
+        <section id="schools" class="management-section">
+            <div class="section-header">
+                <h2>Manage Schools</h2>
+                <button class="add-btn" onclick="openAddSchoolModal()">+ Add School</button>
+            </div>
+            
+            <div class="table-container">
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>School ID</th>
+                            <th>School Name</th>
+                            <th>City</th>
+                            <th>Students</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td colspan="6" style="text-align: center; padding: 2rem;">
+                                Loading schools data...
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section id="users" class="management-section">
+            <div class="section-header">
+                <h2>Manage Users</h2>
+                <button class="add-btn" onclick="openAddUserModal()">+ Add User</button>
+            </div>
+            
+            <div class="table-container">
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>User ID</th>
+                            <th>Username</th>
+                            <th>Role</th>
+                            <th>School</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>USR001</td>
+                            <td>admin</td>
+                            <td>Admin</td>
+                            <td>Delhi Public School</td>
+                            <td><span class="status active">Active</span></td>
+                            <td>
+                                <button class="action-btn edit">Edit</button>
+                                <button class="action-btn view">View</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section id="reports" class="management-section">
+            <h2>Reports & Analytics</h2>
+            <div class="reports-grid">
+                <div class="report-card">
+                    <h3>📊 School Performance</h3>
+                    <p>View performance metrics across all schools</p>
+                    <button class="report-btn" onclick="generateSchoolReport()">Generate Report</button>
+                </div>
+                <div class="report-card">
+                    <h3>👥 Student Analytics</h3>
+                    <p>Student enrollment and performance trends</p>
+                    <button class="report-btn" onclick="generateStudentReport()">Generate Report</button>
+                </div>
+                <div class="report-card">
+                    <h3>💰 Fee Collection</h3>
+                    <p>Fee collection reports and pending dues</p>
+                    <button class="report-btn" onclick="generateFeeReport()">Generate Report</button>
+                </div>
+                <div class="report-card">
+                    <h3>📈 Attendance Summary</h3>
+                    <p>Overall attendance trends and reports</p>
+                    <button class="report-btn" onclick="generateAttendanceReport()">Generate Report</button>
+                </div>
+            </div>
+        </section>
+
+        <section id="database" class="management-section">
+            <div class="section-header">
+                <h2>📊 Database Operations</h2>
+                <button class="add-btn" onclick="refreshDatabaseView()">🔄 Refresh</button>
+            </div>
+            
+            <div class="database-controls">
+                <div class="control-group">
+                    <h3>Live Database Monitor</h3>
+                    <div class="control-buttons">
+                        <button class="control-btn" onclick="showAllTables()">📋 Show All Tables</button>
+                        <button class="control-btn" onclick="showTableData('schools')">🏫 View Schools Data</button>
+                        <button class="control-btn" onclick="showTableData('students')">🎓 View Students Data</button>
+                        <button class="control-btn" onclick="showTableData('teachers')">👨‍🏫 View Teachers Data</button>
+                        <button class="control-btn" onclick="showRecentOperations()">📈 Recent Operations</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="database-results">
+                <div class="results-header">
+                    <h3>Database Query Results</h3>
+                    <span id="resultsCount" class="results-count">0 records</span>
+                </div>
+                <div class="results-container" id="databaseResults">
+                    <div class="empty-state">
+                        <p>Select an option above to view database data</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sql-query-box">
+                <h3>🔍 Custom SQL Query (Read Only)</h3>
+                <div class="query-input-group">
+                    <textarea id="customSqlQuery" placeholder="SELECT * FROM schools LIMIT 5;" rows="3"></textarea>
+                    <button class="query-btn" onclick="executeCustomQuery()">Run Query</button>
+                </div>
+                <div class="query-examples">
+                    <small>Try: SELECT * FROM students WHERE class='10'</small>
+                </div>
+            </div>
+        </section>
+
+        <section class="quick-actions">
+            <h2>Quick Actions</h2>
+            <div class="actions-grid">
+                <div class="action-card" onclick="showSection('users')">
+                    <h3>👥 Manage Users</h3>
+                    <p>Add/Edit students, teachers, parents</p>
+                </div>
+                <div class="action-card" onclick="showSection('reports')">
+                    <h3>📊 Generate Reports</h3>
+                    <p>View analytics and reports</p>
+                </div>
+                <div class="action-card" onclick="openAddStudentModal()">
+                    <h3>🎓 Add Student</h3>
+                    <p>Register new student</p>
+                </div>
+                <div class="action-card" onclick="openAddTeacherModal()">
+                    <h3>👨‍🏫 Add Teacher</h3>
+                    <p>Register new teacher</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div id="addSchoolModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeAddSchoolModal()">&times;</span>
+            <h2>Add New School</h2>
+            <form class="modal-form" id="addSchoolForm">
+                <div class="form-group">
+                    <label for="schoolName">School Name:*</label>
+                    <input type="text" id="schoolName" name="schoolName" required>
+                </div>
+                <div class="form-group">
+                    <label for="schoolCity">City:*</label>
+                    <input type="text" id="schoolCity" name="schoolCity" required>
+                </div>
+                <div class="form-group">
+                    <label for="schoolDistrict">District:</label>
+                    <input type="text" id="schoolDistrict" name="schoolDistrict" value="New District">
+                </div>
+                <div class="form-group">
+                    <label for="schoolContact">Contact:</label>
+                    <input type="text" id="schoolContact" name="schoolContact" value="000-0000000">
+                </div>
+                <div class="form-actions">
+                    <button type="button" class="cancel-btn" onclick="closeAddSchoolModal()">Cancel</button>
+                    <button type="submit" class="submit-btn">Add School</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div id="addUserModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeAddUserModal()">&times;</span>
+            <h2>Add New User</h2>
+            <form class="modal-form">
+                <div class="form-group">
+                    <label for="userName">Full Name:</label>
+                    <input type="text" id="userName" required>
+                </div>
+                <div class="form-group">
+                    <label for="userUsername">Username:</label>
+                    <input type="text" id="userUsername" required>
+                </div>
+                <div class="form-group">
+                    <label for="userPassword">Password:</label>
+                    <input type="password" id="userPassword" required>
+                </div>
+                <div class="form-group">
+                    <label for="userRole">Role:</label>
+                    <select id="userRole" required>
+                        <option value="teacher">Teacher</option>
+                        <option value="student">Student</option>
+                        <option value="parent">Parent</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="userSchool">School:</label>
+                    <select id="userSchool" required>
+                        <option value="">Select School</option>
+                    </select>
+                </div>
+                <div class="form-actions">
+                    <button type="button" class="cancel-btn" onclick="closeAddUserModal()">Cancel</button>
+                    <button type="submit" class="submit-btn">Add User</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="js/admin.js"></script>
+</body>
+</html>

@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parent Dashboard - School Management</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/parent.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <h1 class="logo">👨‍👩‍👧‍👦 Parent Dashboard</h1>
+            <ul class="nav-menu">
+                <li><a href="#overview">Overview</a></li>
+                <li><a href="#children">My Children</a></li>
+                <li><a href="#attendance">Attendance</a></li>
+                <li><a href="#performance">Performance</a></li>
+                <li><a href="#fees">Fee Status</a></li>
+                <li><a href="index.html">Logout</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Parent Content -->
+    <main class="parent-main">
+        <!-- Welcome Section -->
+        <section class="welcome-section">
+            <div class="welcome-card">
+                <div class="welcome-content">
+                    <h2>Welcome, Mr. Rajesh Kumar!</h2>
+                    <p>Stay updated with your children's academic progress and school activities</p>
+                </div>
+                <div class="notification-bell">
+                    <span class="bell-icon">🔔</span>
+                    <span class="notification-count">3</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Children Overview -->
+        <section id="overview" class="management-section">
+            <h2>My Children</h2>
+            <div class="children-grid">
+                <div class="child-card">
+                    <div class="child-header">
+                        <div class="child-avatar">👦</div>
+                        <div class="child-info">
+                            <h3>Aarav Kumar</h3>
+                            <p>Class 10-A | Roll No: 101</p>
+                        </div>
+                    </div>
+                    <div class="child-stats">
+                        <div class="child-stat">
+                            <span class="stat-label">Attendance</span>
+                            <span class="stat-value">94%</span>
+                        </div>
+                        <div class="child-stat">
+                            <span class="stat-label">Performance</span>
+                            <span class="stat-value">87%</span>
+                        </div>
+                        <div class="child-stat">
+                            <span class="stat-label">Fee Status</span>
+                            <span class="stat-value paid">Paid</span>
+                        </div>
+                    </div>
+                    <button class="view-details-btn" onclick="viewChildDetails('Aarav')">View Details</button>
+                </div>
+
+                <div class="child-card">
+                    <div class="child-header">
+                        <div class="child-avatar">👧</div>
+                        <div class="child-info">
+                            <h3>Priya Kumar</h3>
+                            <p>Class 8-B | Roll No: 45</p>
+                        </div>
+                    </div>
+                    <div class="child-stats">
+                        <div class="child-stat">
+                            <span class="stat-label">Attendance</span>
+                            <span class="stat-value">89%</span>
+                        </div>
+                        <div class="child-stat">
+                            <span class="stat-label">Performance</span>
+                            <span class="stat-value">82%</span>
+                        </div>
+                        <div class="child-stat">
+                            <span class="stat-label">Fee Status</span>
+                            <span class="stat-value pending">Pending</span>
+                        </div>
+                    </div>
+                    <button class="view-details-btn" onclick="viewChildDetails('Priya')">View Details</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Notifications -->
+        <section class="notifications-section">
+            <div class="section-header">
+                <h2>Recent Notifications</h2>
+                <button class="view-all-btn" onclick="viewAllNotifications()">View All</button>
+            </div>
+            <div class="notifications-list">
+                <div class="notification-card important">
+                    <div class="notification-icon">⚠️</div>
+                    <div class="notification-content">
+                        <h4>Fee Payment Reminder</h4>
+                        <p>Fee for Priya Kumar is pending. Due date: 15 Dec 2024</p>
+                        <span class="notification-time">2 hours ago</span>
+                    </div>
+                </div>
+                <div class="notification-card">
+                    <div class="notification-icon">📚</div>
+                    <div class="notification-content">
+                        <h4>Parent-Teacher Meeting</h4>
+                        <p>PTM scheduled on 20 Dec 2024 at 10:00 AM</p>
+                        <span class="notification-time">1 day ago</span>
+                    </div>
+                </div>
+                <div class="notification-card">
+                    <div class="notification-icon">🎉</div>
+                    <div class="notification-content">
+                        <h4>Annual Day Celebration</h4>
+                        <p>School annual day on 25 Dec 2024. All parents are invited.</p>
+                        <span class="notification-time">2 days ago</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Attendance Summary -->
+        <section id="attendance" class="management-section">
+            <h2>Attendance Overview</h2>
+            <div class="attendance-comparison">
+                <div class="attendance-child">
+                    <h3>Aarav Kumar</h3>
+                    <div class="attendance-bar">
+                        <div class="bar-fill" style="width: 94%">
+                            <span>94%</span>
+                        </div>
+                    </div>
+                    <div class="attendance-details">
+                        <span>Present: 45/48 days</span>
+                    </div>
+                </div>
+                <div class="attendance-child">
+                    <h3>Priya Kumar</h3>
+                    <div class="attendance-bar">
+                        <div class="bar-fill" style="width: 89%">
+                            <span>89%</span>
+                        </div>
+                    </div>
+                    <div class="attendance-details">
+                        <span>Present: 40/45 days</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Performance Comparison -->
+        <section id="performance" class="management-section">
+            <h2>Academic Performance</h2>
+            <div class="performance-grid">
+                <div class="performance-card">
+                    <h3>Aarav Kumar</h3>
+                    <div class="subject-performance">
+                        <div class="subject-score">
+                            <span>Mathematics</span>
+                            <span>92%</span>
+                        </div>
+                        <div class="subject-score">
+                            <span>Science</span>
+                            <span>88%</span>
+                        </div>
+                        <div class="subject-score">
+                            <span>English</span>
+                            <span>85%</span>
+                        </div>
+                        <div class="overall-score">
+                            <span>Overall</span>
+                            <span class="total-score">87.5%</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="performance-card">
+                    <h3>Priya Kumar</h3>
+                    <div class="subject-performance">
+                        <div class="subject-score">
+                            <span>Mathematics</span>
+                            <span>85%</span>
+                        </div>
+                        <div class="subject-score">
+                            <span>Science</span>
+                            <span>80%</span>
+                        </div>
+                        <div class="subject-score">
+                            <span>English</span>
+                            <span>82%</span>
+                        </div>
+                        <div class="overall-score">
+                            <span>Overall</span>
+                            <span class="total-score">82.3%</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Fee Status -->
+        <section id="fees" class="management-section">
+            <div class="section-header">
+                <h2>Fee Status</h2>
+                <button class="pay-fee-btn" onclick="payFeesOnline()">💳 Pay Fees Online</button>
+            </div>
+            <div class="fees-table-container">
+                <table class="fees-table">
+                    <thead>
+                        <tr>
+                            <th>Child Name</th>
+                            <th>Class</th>
+                            <th>Amount</th>
+                            <th>Due Date</th>
+                            <th>Status</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Aarav Kumar</td>
+                            <td>10-A</td>
+                            <td>₹2,500</td>
+                            <td>10 Dec 2024</td>
+                            <td><span class="status paid">Paid</span></td>
+                            <td><button class="receipt-btn" onclick="downloadReceipt('Aarav')">📄 Receipt</button></td>
+                        </tr>
+                        <tr>
+                            <td>Priya Kumar</td>
+                            <td>8-B</td>
+                            <td>₹2,200</td>
+                            <td>15 Dec 2024</td>
+                            <td><span class="status pending">Pending</span></td>
+                            <td><button class="pay-now-btn" onclick="payNow('Priya')">💳 Pay Now</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Quick Actions -->
+        <section class="quick-actions">
+            <h2>Quick Actions</h2>
+            <div class="actions-grid">
+                <div class="action-card" onclick="scheduleMeeting()">
+                    <div class="action-icon">📅</div>
+                    <h3>Schedule Meeting</h3>
+                    <p>Book appointment with teacher</p>
+                </div>
+                <div class="action-card" onclick="downloadReports()">
+                    <div class="action-icon">📊</div>
+                    <h3>Download Reports</h3>
+                    <p>Get performance reports</p>
+                </div>
+                <div class="action-card" onclick="contactSchool()">
+                    <div class="action-icon">🏫</div>
+                    <h3>Contact School</h3>
+                    <p>Get in touch with school</p>
+                </div>
+                <div class="action-card" onclick="viewCalendar()">
+                    <div class="action-icon">📅</div>
+                    <h3>School Calendar</h3>
+                    <p>View academic calendar</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="js/parent.js"></script>
+</body>
+</html>

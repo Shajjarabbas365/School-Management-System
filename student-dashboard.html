@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Dashboard - School Management</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/student.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <h1 class="logo">🎓 Student Dashboard</h1>
+            <ul class="nav-menu">
+                <li><a href="#profile">Profile</a></li>
+                <li><a href="#attendance">Attendance</a></li>
+                <li><a href="#results">Results</a></li>
+                <li><a href="#timetable">Timetable</a></li>
+                <li><a href="#assignments">Assignments</a></li>
+                <li><a href="index.html">Logout</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Student Content -->
+    <main class="student-main">
+        <!-- Student Profile -->
+        <section id="profile" class="profile-section">
+            <div class="profile-header">
+                <div class="profile-avatar">
+                    <span>👦</span>
+                </div>
+                <div class="profile-info">
+                    <h2>Aarav Kumar</h2>
+                    <p>Class 10-A | Roll No: 101</p>
+                    <div class="profile-meta">
+                        <span><strong>Age:</strong> 15 Years</span>
+                        <span><strong>DOB:</strong> 12 March, 2009</span>
+                        <span><strong>Parent:</strong> Rajesh Kumar</span>
+                    </div>
+                </div>
+                <div class="academic-info">
+                    <div class="academic-card">
+                        <h3>Overall Percentage</h3>
+                        <p class="percentage">87.5%</p>
+                        <span class="grade">Grade A</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quick Stats -->
+        <section class="quick-stats">
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon">📊</div>
+                    <div class="stat-content">
+                        <h3>Attendance</h3>
+                        <p class="stat-number">94%</p>
+                        <span class="stat-label">This Month</span>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">📚</div>
+                    <div class="stat-content">
+                        <h3>Assignments</h3>
+                        <p class="stat-number">3</p>
+                        <span class="stat-label">Pending</span>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">🏆</div>
+                    <div class="stat-content">
+                        <h3>Class Rank</h3>
+                        <p class="stat-number">5</p>
+                        <span class="stat-label">Out of 72</span>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">💰</div>
+                    <div class="stat-content">
+                        <h3>Fee Status</h3>
+                        <p class="stat-number">Paid</p>
+                        <span class="stat-label">Until March</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Attendance Summary -->
+        <section id="attendance" class="management-section">
+            <h2>Attendance Summary</h2>
+            <div class="attendance-chart">
+                <div class="chart-bars">
+                    <div class="chart-bar">
+                        <div class="bar-fill" style="height: 90%"></div>
+                        <span>Mon</span>
+                    </div>
+                    <div class="chart-bar">
+                        <div class="bar-fill" style="height: 100%"></div>
+                        <span>Tue</span>
+                    </div>
+                    <div class="chart-bar">
+                        <div class="bar-fill" style="height: 85%"></div>
+                        <span>Wed</span>
+                    </div>
+                    <div class="chart-bar">
+                        <div class="bar-fill" style="height: 95%"></div>
+                        <span>Thu</span>
+                    </div>
+                    <div class="chart-bar">
+                        <div class="bar-fill" style="height: 100%"></div>
+                        <span>Fri</span>
+                    </div>
+                    <div class="chart-bar">
+                        <div class="bar-fill" style="height: 0%"></div>
+                        <span>Sat</span>
+                    </div>
+                </div>
+            </div>
+            <div class="attendance-details">
+                <div class="detail-item">
+                    <span class="label">Present:</span>
+                    <span class="value">45 days</span>
+                </div>
+                <div class="detail-item">
+                    <span class="label">Absent:</span>
+                    <span class="value">3 days</span>
+                </div>
+                <div class="detail-item">
+                    <span class="label">Percentage:</span>
+                    <span class="value highlight">94%</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Results Section -->
+        <section id="results" class="management-section">
+            <div class="section-header">
+                <h2>Academic Results</h2>
+                <button class="download-btn" onclick="downloadReportCard()">📥 Download Report Card</button>
+            </div>
+            
+            <div class="results-table-container">
+                <table class="results-table">
+                    <thead>
+                        <tr>
+                            <th>Subject</th>
+                            <th>Marks</th>
+                            <th>Grade</th>
+                            <th>Teacher</th>
+                            <th>Remarks</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Mathematics</td>
+                            <td>92/100</td>
+                            <td><span class="grade A">A+</span></td>
+                            <td>Dr. Sharma</td>
+                            <td>Excellent</td>
+                        </tr>
+                        <tr>
+                            <td>Science</td>
+                            <td>88/100</td>
+                            <td><span class="grade A">A</span></td>
+                            <td>Mrs. Gupta</td>
+                            <td>Very Good</td>
+                        </tr>
+                        <tr>
+                            <td>English</td>
+                            <td>85/100</td>
+                            <td><span class="grade A">A</span></td>
+                            <td>Mr. Joshi</td>
+                            <td>Good</td>
+                        </tr>
+                        <tr>
+                            <td>Social Science</td>
+                            <td>82/100</td>
+                            <td><span class="grade B">B+</span></td>
+                            <td>Ms. Kapoor</td>
+                            <td>Can Improve</td>
+                        </tr>
+                        <tr>
+                            <td>Hindi</td>
+                            <td>90/100</td>
+                            <td><span class="grade A">A+</span></td>
+                            <td>Mrs. Singh</td>
+                            <td>Excellent</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Timetable -->
+        <section id="timetable" class="management-section">
+            <h2>Weekly Timetable</h2>
+            <div class="timetable-container">
+                <div class="timetable-day">
+                    <h3>Monday</h3>
+                    <div class="period">09:00 - Math</div>
+                    <div class="period">10:00 - Science</div>
+                    <div class="period">11:00 - English</div>
+                    <div class="period break">12:00 - Lunch</div>
+                    <div class="period">13:00 - Hindi</div>
+                    <div class="period">14:00 - Sports</div>
+                </div>
+                <div class="timetable-day">
+                    <h3>Tuesday</h3>
+                    <div class="period">09:00 - Science</div>
+                    <div class="period">10:00 - Math</div>
+                    <div class="period">11:00 - Social</div>
+                    <div class="period break">12:00 - Lunch</div>
+                    <div class="period">13:00 - English</div>
+                    <div class="period">14:00 - Art</div>
+                </div>
+                <div class="timetable-day">
+                    <h3>Wednesday</h3>
+                    <div class="period">09:00 - English</div>
+                    <div class="period">10:00 - Hindi</div>
+                    <div class="period">11:00 - Math</div>
+                    <div class="period break">12:00 - Lunch</div>
+                    <div class="period">13:00 - Science</div>
+                    <div class="period">14:00 - Library</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Assignments -->
+        <section id="assignments" class="management-section">
+            <div class="section-header">
+                <h2>Recent Assignments</h2>
+                <button class="view-all-btn" onclick="viewAllAssignments()">View All</button>
+            </div>
+            
+            <div class="assignments-list">
+                <div class="assignment-card">
+                    <div class="assignment-header">
+                        <h3>Mathematics Project</h3>
+                        <span class="due-date">Due: 15 Dec 2024</span>
+                    </div>
+                    <p class="assignment-desc">Algebra and Geometry problems solving</p>
+                    <div class="assignment-meta">
+                        <span class="subject math">Mathematics</span>
+                        <span class="status pending">Pending</span>
+                    </div>
+                </div>
+                
+                <div class="assignment-card">
+                    <div class="assignment-header">
+                        <h3>Science Experiment</h3>
+                        <span class="due-date">Due: 18 Dec 2024</span>
+                    </div>
+                    <p class="assignment-desc">Physics practical - Laws of Motion</p>
+                    <div class="assignment-meta">
+                        <span class="subject science">Science</span>
+                        <span class="status submitted">Submitted</span>
+                    </div>
+                </div>
+                
+                <div class="assignment-card">
+                    <div class="assignment-header">
+                        <h3>English Essay</h3>
+                        <span class="due-date">Due: 20 Dec 2024</span>
+                    </div>
+                    <p class="assignment-desc">Write an essay on "My Favorite Leader"</p>
+                    <div class="assignment-meta">
+                        <span class="subject english">English</span>
+                        <span class="status pending">Pending</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="js/student.js"></script>
+</body>
+</html>
